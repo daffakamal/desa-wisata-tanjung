@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { useState } from "react";
 
@@ -8,26 +9,27 @@ const tanamanObatData = [
     id: 1,
     gambar: "/images/gambar-tanaman-jahe.jpg",
     tanaman: "Jahe",
-    namaLatin: "Zingiber officinale",
-    deskripsi: "Deskripsi jahe...",
-    manfaat: "Manfaat jahe...",
-    bentukOlahan: "Bentuk olahan jahe...",
+    namaLatin: "Zingiberaceae",
+    deskripsi:
+      "Tanaman obat tradisional dan bumbu dapur. Jahe mengandung zat gingerol dan shogaol sebagai antioksidan.",
+    manfaat: "Mengurangi reaksi inflamasi, mengendalikan kadar gula darah, meredakan mual, membantu meredakan berbagai gangguan sistem pencernaan.",
+    bentukOlahan: "Serbuk jahe, asinan jahe, sirup jahe, instan jahe, permen jahe, manisan jahe.",
   },
   {
     id: 2,
     gambar: "/images/serai.jpg",
     tanaman: "Serai",
     namaLatin: "Cymbopogon citratus",
-    deskripsi: "Deskripsi serai...",
-    manfaat: "Manfaat serai...",
-    bentukOlahan: "Bentuk olahan serai...",
+    deskripsi: "Tumbuhan rumput-rumputan yang dimanfaatkan sebagai bumbu dapur untuk mengharumkan makanan dan sebagai obat berbagai penyakit.",
+    manfaat: "Anti kanker, mengatasi diabetes, mengobati anemia, mengatasi bakteri dan jamur",
+    bentukOlahan: "Lilin aromaterapi, spray anti nyamuk, serbuk serai, pestisida alami, karbol serai, teh herbal.",
   },
   {
     id: 3,
     gambar: "/images/kunyit.jpg",
     tanaman: "Kunyit",
-    namaLatin: "Cymbopogon citratus",
-    deskripsi: "Deskripsi serai...",
+    namaLatin: "Curcuma longa",
+    deskripsi: "Tanaman obat berupa semak dan bersifat tahunan (perenial) yang tersebar di seluruh daerah tropis. Tanaman kunyit termasuk salah satu tanaman rempah-rempah dan obat asli dari wilayah Asia Tenggara.",
     manfaat: "Manfaat serai...",
     bentukOlahan: "Bentuk olahan serai...",
   },
@@ -65,7 +67,7 @@ export default function Toga() {
         );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 pb-12">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100">
       <Navbar />
       <div
         className="w-full bg-cover bg-center"
@@ -97,11 +99,11 @@ export default function Toga() {
           ))}
         </div>
       </div>
-      <div className="mt-8 w-full px-[180px]">
+      <div className="my-8 w-full px-[180px]">
         {filteredTanamanObat.map((tanaman) => (
           <div
             key={tanaman.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-4 rounded shadow-md"
+            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded shadow-md"
           >
             <img
               src={tanaman.gambar}
@@ -118,6 +120,7 @@ export default function Toga() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

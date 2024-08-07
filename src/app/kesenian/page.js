@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { useState } from "react";
 
@@ -41,7 +42,7 @@ export default function Kesenian() {
         );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 pb-12">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100">
       <Navbar />
       <div
         className="w-full bg-cover bg-center"
@@ -73,11 +74,11 @@ export default function Kesenian() {
           ))}
         </div>
       </div>
-      <div className="mt-8 w-full px-[180px]">
+      <div className="my-8 w-full px-[180px]">
         {filteredKesenian.map((kesenian) => (
           <div
             key={kesenian.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-4 rounded shadow-md"
+            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded shadow-md"
           >
             <img
               src={kesenian.gambar}
@@ -91,6 +92,7 @@ export default function Kesenian() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

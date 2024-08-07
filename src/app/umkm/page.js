@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { useState } from "react";
 
@@ -12,26 +13,26 @@ const umkmData = [
       "Kripik pegagan, kripik debog crispy, jamur crispy, kripik gembus, dan tempe mbus",
     alamat:
       "Jl. Notosukarjo No. 22 Banteran RT 04/26, Donoharjo, Ngaglik, Sleman",
-    nomor: "08164897542",
+    nomor: "08123456789",
     kategori: "Kuliner",
   },
   {
     id: 2,
     gambar: "/images/keripik.png",
-    umkm: "Merry Cake & Cookies",
+    umkm: "Camilan Sembada",
     usaha:
-      "Kue kering, bolen pisang, dan keripik pisang",
+      "Kripik pegagan, kripik debog crispy, jamur crispy, kripik gembus, dan tempe mbus",
     alamat:
-      "Banteran RT 02 RW 25, Donoharjo, Ngaglik, Sleman",
-    nomor: "0817265012",
+      "Jl. Notosukarjo No. 22 Banteran RT 04/26, Donoharjo, Ngaglik, Sleman",
+    nomor: "08123456789",
     kategori: "Kuliner",
   },
   {
     id: 3,
     gambar: "/images/keripik.png",
-    umkm: "Olshop Mama Jalu",
+    umkm: "Camilan Sembada",
     usaha:
-      "Eceran gas elpiji dan fashion",
+      "Kripik pegagan, kripik debog crispy, jamur crispy, kripik gembus, dan tempe mbus",
     alamat:
       "Jl. Notosukarjo, Donoharjo, Ngaglik, Sleman, D.I. Yogyakarta",
     nomor: "082225043173",
@@ -116,7 +117,7 @@ export default function UMKM() {
       : umkmData.filter((item) => item.kategori === selectedCategory);
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 pb-12">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100">
       <Navbar />
       <div
         className="w-full bg-cover bg-center"
@@ -150,11 +151,11 @@ export default function UMKM() {
           ))}
         </div>
       </div>
-      <div className="mt-8 w-full px-[180px]">
+      <div className="my-8 w-full px-[180px]">
         {filteredUMKM.map((umkm) => (
           <div
             key={umkm.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-4 rounded shadow-md"
+            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded shadow-md"
           >
             <img
               src={umkm.gambar}
@@ -170,6 +171,7 @@ export default function UMKM() {
           </div>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }
