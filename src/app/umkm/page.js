@@ -155,12 +155,12 @@ export default function UMKM() {
         {filteredUMKM.map((umkm) => (
           <div
             key={umkm.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded shadow-md"
+            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
           >
             <img
               src={umkm.gambar}
               alt={umkm.umkm}
-              className="w-full md:w-[300px] h-[190px] object-cover rounded"
+              className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
             />
             <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
               <h4 className="text-lg font-bold mb-2">{umkm.umkm}</h4>

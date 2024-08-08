@@ -88,7 +88,7 @@ export default function Toga() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-5 py-2 rounded-[18px] border-2 text-base ${
+              className={`px-5 py-1.5 rounded-[18px] border-2 text-base ${
                 selectedCategory === category
                   ? "bg-[#C2DAFF] text-black"
                   : "bg-transparent border-[#C2DAFF] text-black"
@@ -103,14 +103,14 @@ export default function Toga() {
         {filteredTanamanObat.map((tanaman) => (
           <div
             key={tanaman.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded shadow-md"
+            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
           >
             <img
               src={tanaman.gambar}
               alt={tanaman.tanaman}
-              className="w-full md:w-[300px] h-[190px] object-cover rounded"
+              className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
             />
-            <div className="ml-0 md:ml-4 mt-4 md:mt-0 text-black">
+            <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
               <h3 className="text-xl font-bold">{tanaman.tanaman}</h3>
               <p>Nama Latin: {tanaman.namaLatin}</p>
               <p>Deskripsi: {tanaman.deskripsi}</p>
