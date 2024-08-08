@@ -10,7 +10,7 @@ export default function Footer() {
             A stunning tourism village with many rich local cultures and
             potentials. Feel the unique experience and excitement by exploring Tanjung Tourism Village.
           </p>
-          <p className="mt-7 text-sm">Alamat: Desa Tanjung, Ponason, Donoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581</p>
+          <p className="mt-7 text-sm">Alamat: Desa Tanjung, Donoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581</p>
         </div>
         <div className="text-center md:text-left">
           <p className="font-medium text-center">Didukung oleh:</p>
