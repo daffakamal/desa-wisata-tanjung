@@ -26,9 +26,9 @@ app.use('/in/status', (req, res) => {
 
 /////////////////////////////////////////////////////////
 
-app.use('/umkm', umkmRoutes);
-app.use('/tanaman-obat', tanamanObatRoutes);
-app.use('/kesenian', kesenianRoutes);
+app.use('/in/umkm', umkmRoutes);
+app.use('/in/tanaman-obat', tanamanObatRoutes);
+app.use('/in/kesenian', kesenianRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server start at PORT: ${PORT}`);
