@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-connectToMongDB("mongodb://h9p9fhkfhs:9Vc8bI9rN7dJK3wF@h9p9fhkfhs/?ssl=true&replicaSet=atlas-9i3hpb-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Abdes")
+connectToMongDB("mongodb+srv://h9p9fhkfhs:rk8vQnCBbLF7LK4t@abdesdb.wamj5.mongodb.net/?retryWrites=true&w=majority&appName=abdesdb")
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
 
