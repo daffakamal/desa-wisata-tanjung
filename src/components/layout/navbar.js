@@ -25,6 +25,15 @@ export default function Navbar() {
         <li className="px-7 cursor-pointer capitalize font-medium text-white hover:scale-105 hover:text-white duration-200">
           <Link href="/kesenian">Kesenian</Link>
         </li>
+        <li className="px-7 cursor-pointer capitalize font-medium text-white hover:scale-105 hover:text-white duration-200">
+          <Link href="/gallery">Gallery</Link>
+        </li>
+        <li className="px-7 cursor-pointer capitalize font-medium text-white hover:scale-105 hover:text-white duration-200">
+          <Link href="/cafe">Cafe</Link>
+        </li>
+        <li className="px-7 cursor-pointer capitalize font-medium text-white hover:scale-105 hover:text-white duration-200">
+          <Link href="/lembagaKonservasi">Lembaga Konservasi</Link>
+        </li>
       </ul>
       <div onClick={() => setNav(!nav)} className="cursor-pointer pr-4 z-10 text-white md:hidden">
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
@@ -42,6 +51,15 @@ export default function Navbar() {
           </li>
           <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
             <Link onClick={() => setNav(!nav)} href="/kesenian">Kesenian</Link>
+          </li>
+          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+            <Link onClick={() => setNav(!nav)} href="/gallery">Gallery</Link>
+          </li>
+          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+            <Link onClick={() => setNav(!nav)} href="/cafe">Cafe</Link>
+          </li>
+          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+            <Link onClick={() => setNav(!nav)} href="/lembagaKonservasi">Lembaga Konservasi</Link>
           </li>
         </ul>
       )}
