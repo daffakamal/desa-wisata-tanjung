@@ -14,10 +14,10 @@ export default function Gallery() {
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 relative">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 relative overflow-hidden">
       <Navbar />
       <div
-        className="w-full bg-cover bg-center"
+        className="w-full mx-2 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/Group 27.png')" }}
       >
         <h1 className="text-3xl font-bold text-white text-center pt-36">
@@ -28,9 +28,9 @@ export default function Gallery() {
           Tanjung yang diinisiasi oleh BEM KM UGM 2024
         </p>
       </div>
-      <div className="w-full px-[180px]">
+      <div className="w-full px-8 md:px-[180px]">
         <p className="mt-8 text-xl font-bold text-black">Daftar Menu</p>
-        <div className="grid grid-cols-4 gap-8 mt-4 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-4 mb-8">
           {plants.map((plant, index) => (
             <div key={index} className="bg-white shadow-md rounded-lg overflow-hidden">
               <img

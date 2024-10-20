@@ -67,7 +67,7 @@ export default function Toga() {
         );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 overflow-hidden">
       <Navbar />
       <div
         className="w-full bg-cover bg-center"
@@ -81,9 +81,9 @@ export default function Toga() {
           Tanjung yang diinisiasi oleh BEM KM UGM 2024
         </p>
       </div>
-      <div className="w-full px-[180px]">
+      <div className="w-full px-8 md:px-[180px]">
         <p className="mt-8 text-xl font-bold text-black">Daftar Tanaman Obat</p>
-        <div className="flex space-x-3 mt-4">
+        <div className="flex space-x-3 mt-4 py-2 overflow-x-auto">
           {categories.map((category) => (
             <button
               key={category}
@@ -99,7 +99,7 @@ export default function Toga() {
           ))}
         </div>
       </div>
-      <div className="my-8 w-full px-[180px]">
+      <div className="my-8 w-full px-8 md:px-[180px]">
         {filteredTanamanObat.map((tanaman) => (
           <div
             key={tanaman.id}

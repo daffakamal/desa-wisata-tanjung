@@ -117,7 +117,7 @@ export default function UMKM() {
       : umkmData.filter((item) => item.kategori === selectedCategory);
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100  overflow-hidden">
       <Navbar />
       <div
         className="w-full bg-cover bg-center"
@@ -131,7 +131,7 @@ export default function UMKM() {
           usaha kuliner maupun non-kuliner dengan total lebih dari 20 UMKM.
         </p>
       </div>
-      <div className="w-full px-[180px]">
+      <div className="w-full px-8 md:px-[180px]">
         <p className="mt-8 text-xl font-bold text-black">
           Daftar Usaha Mikro Kecil dan Menengah
         </p>
@@ -151,7 +151,7 @@ export default function UMKM() {
           ))}
         </div>
       </div>
-      <div className="my-8 w-full px-[180px]">
+      <div className="my-8 w-full px-8 md:px-[180px]">
         {filteredUMKM.map((umkm) => (
           <div
             key={umkm.id}

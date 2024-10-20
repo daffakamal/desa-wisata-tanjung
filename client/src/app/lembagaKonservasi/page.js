@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/navbar";
 export default function lembagaKonservasi() {
     
     return (
-      <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100">
+      <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 overflow-hidden">
         <Navbar />
         <div
           className="w-full bg-cover bg-center"

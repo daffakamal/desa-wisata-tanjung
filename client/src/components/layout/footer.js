@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#242424] text-white py-10 px-32">
+    <footer className="w-full bg-[#242424] text-white py-10 px-8 md:px-32">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="mb-6 md:mb-0 max-w-[520px]">
           <h2 className="text-2xl font-bold">Desa Wisata Tanjung</h2>

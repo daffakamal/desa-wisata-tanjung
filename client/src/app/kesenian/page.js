@@ -42,7 +42,7 @@ export default function Kesenian() {
         );
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 overflow-hidden">
       <Navbar />
       <div
         className="w-full bg-cover bg-center"
@@ -56,9 +56,9 @@ export default function Kesenian() {
           seperti kesenian Pek Bung, Jathilan, dan Gejog Lesung.
         </p>
       </div>
-      <div className="w-full px-[180px]">
+      <div className="w-full px-8 md:px-[180px]">
         <p className="mt-8 text-xl font-bold text-black">Daftar Kesenian</p>
-        <div className="flex space-x-3 mt-4">
+        <div className="flex space-x-3 mt-4 py-2 overflow-y-auto">
           {categories.map((category) => (
             <button
               key={category}
@@ -74,7 +74,7 @@ export default function Kesenian() {
           ))}
         </div>
       </div>
-      <div className="my-8 w-full px-[180px]">
+      <div className="my-8 w-full px-8 md:px-[180px]">
         {filteredKesenian.map((kesenian) => (
           <div
             key={kesenian.id}
