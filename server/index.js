@@ -6,6 +6,7 @@ const umkmRoutes = require('./data/routes/umkmRoutes');
 const tanamanObatRoutes = require('./data/routes/tanamanObatRoutes');
 const kesenianRoutes = require('./data/routes/kesenianRoutes');
 const galleryRoutes = require('./data/routes/galleryRoutes');
+const cafeRoutes = require('./data/routes/cafeRoutes');
 
 require('dotenv').config();
 
@@ -31,6 +32,7 @@ app.use('/in/umkm', umkmRoutes);
 app.use('/in/tanaman-obat', tanamanObatRoutes);
 app.use('/in/kesenian', kesenianRoutes);
 app.use('/in/gallery', galleryRoutes);
+app.use('/in/cafe', cafeRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server start at PORT: ${PORT}`);
