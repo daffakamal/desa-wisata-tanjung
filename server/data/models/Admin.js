@@ -48,7 +48,7 @@ adminSchema.pre('save', async function(next) {
 // Generate auth token
 adminSchema.methods.generateAuthToken = async function() {
   const admin = this;
-  const token = jwt.sign({ _id: admin._id.toString() }, process.env.JWT_SECRET, {
+  const token = jwt.sign({ _id: admin._id.toString() }, process.env.JWT_SECRET || "rahasiaABDES", {
     expiresIn: '24h'
   });
   
