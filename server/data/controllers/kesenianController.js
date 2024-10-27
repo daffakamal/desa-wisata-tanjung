@@ -1,11 +1,16 @@
-const kesenianData = require("../models/kesenianModel");
+const Kesenian = require("../models/kesenianModel");
 
-exports.getAllKesenian = (req, res) => {
-  res.json(kesenianData);
+exports.getAllKesenian = async (req, res) => {
+  try {
+    const data = await Kesenian.find();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 };
 
 exports.getKesenianById = (req, res) => {
-  const kesenian = kesenianData.find(k => k.id === parseInt(req.params.id));
+  const kesenian = Kesenian.find(k => k.id === parseInt(req.params.id));
   if (kesenian) {
     res.json(kesenian);
   } else {
@@ -15,7 +20,7 @@ exports.getKesenianById = (req, res) => {
 
 // Create new Kesenian
 exports.createKesenian = async (req, res) => {
-  const newKesenian = new kesenianData(req.body);
+  const newKesenian = new Kesenian(req.body);
   try {
     const savedKesenian = await newKesenian.save();
     res.status(201).json(savedKesenian);
@@ -27,7 +32,7 @@ exports.createKesenian = async (req, res) => {
 // Update Kesenian by ID
 exports.updateKesenian = async (req, res) => {
   try {
-    const updatedKesenian = await kesenianData.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updatedKesenian = await Kesenian.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedKesenian) return res.status(404).json({ message: "Kesenian not found" });
     res.status(200).json(updatedKesenian);
   } catch (error) {
@@ -38,7 +43,7 @@ exports.updateKesenian = async (req, res) => {
 // Delete Kesenian by ID
 exports.deleteKesenian = async (req, res) => {
   try {
-    const deletedKesenian = await kesenianData.findByIdAndDelete(req.params.id);
+    const deletedKesenian = await Kesenian.findByIdAndDelete(req.params.id);
     if (!deletedKesenian) return res.status(404).json({ message: "Kesenian not found" });
     res.status(200).json({ message: "Kesenian deleted" });
   } catch (error) {

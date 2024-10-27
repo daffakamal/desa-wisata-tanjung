@@ -1,7 +1,12 @@
 const cafeData = require("../models/cafeModel");
 
-exports.getAllCafeItems = (req, res) => {
-  res.json(cafeData);
+exports.getAllCafeItems = async (req, res) => {
+  try {
+    const data = await cafeData.find();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 };
 
 exports.getCafeItemById = (req, res) => {

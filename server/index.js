@@ -7,11 +7,12 @@ const tanamanObatRoutes = require('./data/routes/tanamanObatRoutes');
 const kesenianRoutes = require('./data/routes/kesenianRoutes');
 const galleryRoutes = require('./data/routes/galleryRoutes');
 const cafeRoutes = require('./data/routes/cafeRoutes');
+const authRoutes = require('./data/routes/auth');
 
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -33,6 +34,9 @@ app.use('/in/tanaman-obat', tanamanObatRoutes);
 app.use('/in/kesenian', kesenianRoutes);
 app.use('/in/gallery', galleryRoutes);
 app.use('/in/cafe', cafeRoutes);
+
+app.use('/in/auth', authRoutes);
+// app.use('/in/admin', adminRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server start at PORT: ${PORT}`);

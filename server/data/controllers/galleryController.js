@@ -1,7 +1,12 @@
-const galleryData = require("../models/galleryModel");
+const galleryData = require("../models/galleryModel.js");
 
-exports.getAllGalleryItems = (req, res) => {
-  res.json(galleryData);
+exports.getAllGalleryItems = async (req, res) => {
+  try {
+    const data = await galleryData.find();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 };
 
 exports.getGalleryItemById = (req, res) => {

@@ -1,0 +1,48 @@
+const tanamanObatData = [
+    {
+      id: 1,
+      gambar: "/images/gambar-tanaman-jahe.jpg",
+      tanaman: "Jahe",
+      namaLatin: "Zingiberaceae",
+      deskripsi:
+        "Tanaman obat tradisional dan bumbu dapur. Jahe mengandung zat gingerol dan shogaol sebagai antioksidan.",
+      manfaat: "Mengurangi reaksi inflamasi, mengendalikan kadar gula darah, meredakan mual, membantu meredakan berbagai gangguan sistem pencernaan.",
+      bentukOlahan: "Serbuk jahe, asinan jahe, sirup jahe, instan jahe, permen jahe, manisan jahe.",
+    },
+    {
+      id: 2,
+      gambar: "/images/serai.jpg",
+      tanaman: "Serai",
+      namaLatin: "Cymbopogon citratus",
+      deskripsi: "Tumbuhan rumput-rumputan yang dimanfaatkan sebagai bumbu dapur untuk mengharumkan makanan dan sebagai obat berbagai penyakit.",
+      manfaat: "Anti kanker, mengatasi diabetes, mengobati anemia, mengatasi bakteri dan jamur",
+      bentukOlahan: "Lilin aromaterapi, spray anti nyamuk, serbuk serai, pestisida alami, karbol serai, teh herbal.",
+    },
+    {
+      id: 3,
+      gambar: "/images/kunyit.jpg",
+      tanaman: "Kunyit",
+      namaLatin: "Curcuma longa",
+      deskripsi: "Tanaman obat berupa semak dan bersifat tahunan (perenial) yang tersebar di seluruh daerah tropis. Tanaman kunyit termasuk salah satu tanaman rempah-rempah dan obat asli dari wilayah Asia Tenggara.",
+      manfaat: "Membantu meningkatkan daya tahan tubuh, meredakan nyeri haid, meredakan gatal-gatal pada kulit, dan membantu mengatasi gangguan sistem pencernaan.",
+      bentukOlahan: "Bubuk kunyit, jamu kunyit, bumbu masakan, masker kunyit",
+    },
+    {
+      id: 4,
+      gambar: "/images/kencur.jpg",
+      tanaman: "Kencur",
+      namaLatin: "Kaempferia galanga",
+      deskripsi: "tanaman tropis yang tumbuh dengan subur di berbagai pelosok daerah di Indonesia, baik sebagai tanaman yang dipelihara maupun dibudidayakan. Kencur juga banyak digunakan sebagai ramuan obat tradisional dan sebagai bumbu penyedap masakan.",
+      manfaat: "Mengurangi sakit gigi, menurunkan demam, meredakan sakit perut, membantu mengatasi diare.",
+      bentukOlahan: "Jamu beras kencur, es beras kencur, es lilin beras kencur, kue beras kencur.",
+    },
+    {
+      id: 5,
+      gambar: "/images/temulawak.jpeg",
+      tanaman: "Temulawak",
+      namaLatin: "Curcuma zanthorrhiza",
+      deskripsi: "tanaman berbatang semu dengan bunga eksotis berwarna putih kemerahan dan memiliki rimpang relatif besar dengan warna irisan rimpang kuning cerah. Tumbuhan obat ini tergolong dalam suku temu-temuan (Zingiberaceae).",
+      manfaat: "Meningkatkan fungsi pencernaan, antikanker, temulawak membantu meningkatkan fungsi ginjal, meningkatkan metabolisme tubuh, membantu mengatasi mual",
+      bentukOlahan: "Simplisia, pati, minuman instan, kue kering, jamu, dodol, dan permen jeli.",
+    },
+  ];
