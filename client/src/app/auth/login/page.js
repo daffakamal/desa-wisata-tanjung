@@ -1,30 +1,56 @@
-// app/auth/login/page.tsx
 'use client'
 
-import { login } from '../services/auth';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
+import { useAuth } from '@/providers/AuthProvider'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+  const { login, isAuthenticated } = useAuth()
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.replace('/admin')
+    }
+  }, [isAuthenticated, router])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (isLoading) return
+    
+    setIsLoading(true)
     setError('')
 
     try {
-        await login(email, password);
-        router.push('/admin');
-      } catch (error) {
-        setError('Invalid credentials');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed')
       }
+
+      await login(data.token)
+      router.replace('/admin')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Invalid credentials')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -44,6 +70,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="admin@example.com"
+                disabled={isLoading}
               />
             </div>
             <div className="space-y-2">
@@ -55,13 +82,18 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 placeholder="••••••••"
+                disabled={isLoading}
               />
             </div>
             {error && (
               <p className="text-red-500 text-sm">{error}</p>
             )}
-            <Button type="submit" className="w-full">
-              Login
+            <Button 
+              type="submit" 
+              className="w-full"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Logging in...' : 'Login'}
             </Button>
           </form>
         </CardContent>
