@@ -9,7 +9,7 @@ import Image from "next/image"
 import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 
-export default function lembagaKonservasi() {
+export default function LembagaKonservasi() {
 
   const [currentSlide, setCurrentSlide] = useState(0)
   const programs = [
