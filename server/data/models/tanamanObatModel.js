@@ -1,30 +1,34 @@
 const mongoose = require('mongoose');
 
-const TanamanObatSchema = new mongoose.Schema({
-  gambar: {
-    type: String,
-    required: true,
-  },
+const tanamanObatSchema = new mongoose.Schema({
   tanaman: {
     type: String,
-    required: true,
+    required: true
   },
   namaLatin: {
     type: String,
-    required: true,
+    required: true
   },
   deskripsi: {
     type: String,
-    required: true,
+    required: true
   },
   manfaat: {
     type: String,
-    required: true,
+    required: true
   },
   bentukOlahan: {
     type: String,
-    required: true,
+    required: true
   },
+  gambar: {
+    type: String,
+    default: null
+  },
+  cloudinary_id: {
+    type: String,
+    default: null
+  }
 });
 
-module.exports = mongoose.model('TanamanObat', TanamanObatSchema);
+module.exports = mongoose.model('TanamanObat', tanamanObatSchema);

@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@/providers/AuthProvider'
+import { Toaster } from 'react-hot-toast'
 
 export default function AdminLayout({ children }) {
   const { isAuthenticated, loading } = useAuth()
@@ -26,5 +27,15 @@ export default function AdminLayout({ children }) {
     return null
   }
 
-  return <>{children}</>
+  return <><Toaster position="bottom-right" reverseOrder={true} toastOptions={{
+    style: {
+      border: '1px solid #713200',
+      padding: '16px',
+      color: '#713200',
+    },
+    iconTheme: {
+      primary: '#713200',
+      secondary: '#FFFAEE',
+    },
+  }} />{children}</>
 }

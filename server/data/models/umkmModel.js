@@ -24,6 +24,10 @@ const UmkmSchema = new mongoose.Schema({
   kategori: {
     type: String,
     required: true,
+  },
+  cloudinary_id: {
+    type: String,
+    default: null
   }
 });
 

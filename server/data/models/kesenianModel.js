@@ -13,6 +13,10 @@ const KesenianSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cloudinary_id: {
+    type: String,
+    default: null
+  }
 });
 
 module.exports = mongoose.model('Kesenian', KesenianSchema);

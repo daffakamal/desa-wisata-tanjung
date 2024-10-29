@@ -8,6 +8,7 @@ const kesenianRoutes = require('./data/routes/kesenianRoutes');
 const galleryRoutes = require('./data/routes/galleryRoutes');
 const cafeRoutes = require('./data/routes/cafeRoutes');
 const authRoutes = require('./data/routes/auth');
+const { getData } = require('./data/routes/dataRoutes');
 
 require('dotenv').config();
 
@@ -34,6 +35,7 @@ app.use('/in/tanaman-obat', tanamanObatRoutes);
 app.use('/in/kesenian', kesenianRoutes);
 app.use('/in/gallery', galleryRoutes);
 app.use('/in/cafe', cafeRoutes);
+app.use('/in/data', getData);
 
 app.use('/in/auth', authRoutes);
 // app.use('/in/admin', adminRoutes);

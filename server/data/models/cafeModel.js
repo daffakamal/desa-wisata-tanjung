@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const cafeSchema = new mongoose.Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
   gambar: {
     type: String,
     required: true,
@@ -18,6 +13,10 @@ const cafeSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  cloudinary_id: {
+    type: String,
+    default: null
+  }
 });
 
 module.exports = mongoose.model('cafe', cafeSchema);
