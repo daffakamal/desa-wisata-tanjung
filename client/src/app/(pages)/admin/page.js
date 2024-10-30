@@ -165,7 +165,7 @@ export default function DashboardDemo() {
                           />
                           <button 
                             onClick={() => handleDelete(item.id)}
-                            className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600"
+                            className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-red-600"
                           >
                             <Trash2 className="h-4 w-4" />
                           </button>

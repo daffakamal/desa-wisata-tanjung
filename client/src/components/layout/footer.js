@@ -11,6 +11,7 @@ export default function Footer() {
             potentials. Feel the unique experience and excitement by exploring Tanjung Tourism Village.
           </p>
           <p className="mt-7 text-sm">Alamat: Desa Tanjung, Donoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581</p>
+          <Link href={"/admin"} className="mt-12 text-sm">Admin Page</Link>
         </div>
         <div className="text-center md:text-left">
           <p className="font-medium text-center">Didukung oleh:</p>

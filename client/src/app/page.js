@@ -7,14 +7,14 @@ import Navbar from "@/components/layout/navbar";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
-      <SplashAnimation>
-        <Navbar />
-        <LandingPage />
-        <Tentang />
-        <Potensi />
-        <Footer />
-      </SplashAnimation>
-    </main>
+    <SplashAnimation>
+      <main className="flex min-h-screen flex-col items-center justify-between overflow-hidden">
+          <Navbar />
+          <LandingPage />
+          <Tentang />
+          <Potensi />
+          <Footer />
+      </main>
+    </SplashAnimation>
   );
 }

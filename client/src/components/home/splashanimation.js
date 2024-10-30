@@ -14,7 +14,7 @@ const SplashAnimation = ({ children }) => {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen">
+    <div className=" w-screen h-screen">
       <AnimatePresence mode="wait">
         {showSplash ? (
           <motion.div
@@ -50,9 +50,9 @@ const SplashAnimation = ({ children }) => {
         ) : (
           <motion.div
             key="main"
-            initial={{ opacity: 0, scale: 1.2 }}
+            initial={{ opacity: 0, y: -3, scale: 1.2 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
           >
             {children}
           </motion.div>

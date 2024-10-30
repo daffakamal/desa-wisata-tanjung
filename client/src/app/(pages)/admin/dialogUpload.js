@@ -410,13 +410,31 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="kategori" className="text-right">Kategori</Label>
-                                    <Input
+                                    <Label htmlFor="kategori" className="text-right">
+                                        Kategori *
+                                    </Label>
+                                    <Select
                                         id="kategori"
                                         className="col-span-3"
                                         value={umkmForm.kategori}
-                                        onChange={(e) => handleInputChange(e, 'umkm')}
-                                    />
+                                        onValueChange={(value) => handleInputChange({
+                                            target: {
+                                                id: 'kategori',
+                                                value: value
+                                            }
+                                        }, 'umkm')}
+                                        required
+                                    >
+                                        <SelectTrigger className="w-[180px]">
+                                            <SelectValue placeholder="Pilih Kategori" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectGroup>
+                                                <SelectItem value="Kuliner">Kuliner</SelectItem>
+                                                <SelectItem value="Non-Kuliner">Non-Kuliner</SelectItem>
+                                            </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
                                 </div>
                             </>
                         )}
@@ -450,7 +468,7 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                                         }, 'cafe')}
                                         required
                                     >
-                                        <SelectTrigger>
+                                        <SelectTrigger className="w-[180px]">
                                             <SelectValue placeholder="Pilih Kategori" />
                                         </SelectTrigger>
                                         <SelectContent>
