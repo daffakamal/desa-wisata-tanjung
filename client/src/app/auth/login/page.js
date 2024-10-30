@@ -30,7 +30,7 @@ export default function LoginPage() {
     setError('')
 
     try {
-      const response = await fetch(process.env.NEXT_PUBLIC_API_URL || '/in/auth/login', {
+      const response = await fetch('/in/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                placeholder="admin@example.com"
+                placeholder="email@example.com"
                 disabled={isLoading}
               />
             </div>

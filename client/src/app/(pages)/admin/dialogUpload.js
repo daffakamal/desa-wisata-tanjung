@@ -442,7 +442,12 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                                         id="kategori"
                                         className="col-span-3"
                                         value={cafeForm.kategori}
-                                        onValueChange={(e) => handleInputChange(e, 'cafe')}
+                                        onValueChange={(value) => handleInputChange({
+                                            target: {
+                                                id: 'kategori',
+                                                value: value
+                                            }
+                                        }, 'cafe')}
                                         required
                                     >
                                         <SelectTrigger>
