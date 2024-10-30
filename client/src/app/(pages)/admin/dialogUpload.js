@@ -15,7 +15,15 @@ import { Textarea } from "@/components/ui/textarea"
 import { PlusIcon, UploadIcon, X } from "lucide-react"
 import axios from "axios"
 import { toast } from "react-hot-toast"
-import { Select } from "@/components/ui/select"
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
 
 const DialogUpload = ({ activeTab, onSuccess }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false)
