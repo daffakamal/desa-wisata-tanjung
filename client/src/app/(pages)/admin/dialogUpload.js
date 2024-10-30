@@ -42,7 +42,7 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
     })
     const [kesenianForm, setKesenianForm] = useState({
         kesenian: "",
-        kesenianDeskripsi: ""
+        deskripsi: ""
     })
     const [umkmForm, setUmkmForm] = useState({
         umkm: "",
@@ -70,7 +70,7 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
         })
         setKesenianForm({
             kesenian: "",
-            kesenianDeskripsi: ""
+            deskripsi: ""
         })
         setUmkmForm({
             umkm: "",
@@ -357,11 +357,11 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="kesenianDeskripsi" className="text-right">Deskripsi</Label>
+                                    <Label htmlFor="deskripsi" className="text-right">Deskripsi</Label>
                                     <Textarea
-                                        id="kesenianDeskripsi"
+                                        id="deskripsi"
                                         className="col-span-3"
-                                        value={kesenianForm.kesenianDeskripsi}
+                                        value={kesenianForm.deskripsi}
                                         onChange={(e) => handleInputChange(e, 'kesenian')}
                                     />
                                 </div>
