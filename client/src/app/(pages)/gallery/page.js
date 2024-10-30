@@ -34,8 +34,7 @@ export default function Gallery() {
           Gallery
         </h1>
         <p className="text-lg text-white text-center pt-3 pb-20">
-          Program penanaman tanaman obat keluarga di Dusun Banteran dan Desa
-          Tanjung yang diinisiasi oleh BEM KM UGM 2024
+          Dokumentasi tanaman obat keluarga di Dusun Banteran dan Desa Tanjung
         </p>
       </div>
       <div className="w-full px-8 md:px-[180px]">
