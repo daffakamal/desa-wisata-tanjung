@@ -22,7 +22,7 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    const admin = await admin.findByCredentials(email, password);
+    const admin = await Admin.findByCredentials(email, password);
     const token = await admin.generateAuthToken();
     res.json({ admin, token });
   } catch (error) {
