@@ -13,6 +13,11 @@ const cafeSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  kategori: {
+    type: String,
+    enum: ['Kopi', 'Non Kopi', 'Teh', 'Jamu'],
+    required: true,
+  },
   cloudinary_id: {
     type: String,
     default: null
