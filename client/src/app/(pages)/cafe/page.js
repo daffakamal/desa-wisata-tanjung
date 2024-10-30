@@ -53,7 +53,7 @@ export default function Cafe() {
       </div>
       <div className="w-full px-8 md:px-[180px]">
         <p className="mt-8 text-xl font-bold text-black">Daftar Menu</p>
-        <div className="flex space-x-3 mt-4">
+        <div className="flex space-x-3 mt-4 overflow-y-auto">
           {categories.map((category) => (
             <button
               key={category}
