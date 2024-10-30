@@ -15,6 +15,15 @@ import { Textarea } from "@/components/ui/textarea"
 import { PlusIcon, UploadIcon, X } from "lucide-react"
 import axios from "axios"
 import { toast } from "react-hot-toast"
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
 
 const DialogUpload = ({ activeTab, onSuccess }) => {
     const [isDialogOpen, setIsDialogOpen] = useState(false)
@@ -72,6 +81,7 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
         })
         setCafeForm({
             menu: "",
+            kategori: "",
             harga: ""
         })
         setGalleryForm({
@@ -423,6 +433,30 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                                         onChange={(e) => handleInputChange(e, 'cafe')}
                                         required
                                     />
+                                </div>
+                                <div className="grid grid-cols-4 items-center gap-4">
+                                    <Label htmlFor="kategori" className="text-right">
+                                        Kategori *
+                                    </Label>
+                                    <Select
+                                        id="kategori"
+                                        className="col-span-3"
+                                        value={cafeForm.kategori}
+                                        onValueChange={(e) => handleInputChange(e, 'cafe')}
+                                        required
+                                    >
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Pilih Kategori" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectGroup>
+                                                <SelectItem value="Kopi">Kopi</SelectItem>
+                                                <SelectItem value="Non Kopi">Non Kopi</SelectItem>
+                                                <SelectItem value="Teh">Teh</SelectItem>
+                                                <SelectItem value="Jamu">Jamu</SelectItem>
+                                            </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
                                     <Label htmlFor="harga" className="text-right">Harga *</Label>
