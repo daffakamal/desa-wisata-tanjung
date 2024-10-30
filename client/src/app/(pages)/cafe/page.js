@@ -7,6 +7,14 @@ import { useState, useEffect } from "react";
 // Define categories
 const categories = ["Semua", "Kopi", "Non Kopi", "Teh", "Jamu"];
 
+const formatRupiah = (angka) => {
+  return angka.toLocaleString("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    minimumFractionDigits: 2
+  });
+};
+
 export default function Cafe() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
   const [cafeData, setCafeData] = useState([]);
@@ -75,7 +83,9 @@ export default function Cafe() {
             <img src={cafe.gambar} alt={cafe.menu} className="w-full h-48 object-cover" />
             <div className="p-4">
               <p className="text-center text-lg font-semibold text-black">{cafe.menu}</p>
-              <p className="text-center text-base text-gray-700">Rp {cafe.harga}</p>
+              <p className="text-center text-base text-gray-700">
+                {formatRupiah(cafe.harga)}
+              </p>
             </div>
           </div>
         ))}
