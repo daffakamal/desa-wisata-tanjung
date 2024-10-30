@@ -14,7 +14,7 @@ export default function Cafe() {
   // Fetch cafe data from backend
   const fetchCafeData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/in/cafe');
+      const response = await fetch('/in/cafe');
       const data = await response.json();
       return data;
     } catch (error) {
