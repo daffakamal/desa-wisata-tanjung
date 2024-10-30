@@ -442,7 +442,7 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                         {activeTab === "gallery" && (
                             <>
                                 <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="tanaman" className="text-right">Tanaman *</Label>
+                                    <Label htmlFor="tanaman" className="text-right">Tanaman</Label>
                                     <Input
                                         id="tanaman"
                                         className="col-span-3"
@@ -458,6 +458,7 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                                         className="col-span-3"
                                         value={galleryForm.deskripsi}
                                         onChange={(e) => handleInputChange(e, 'gallery')}
+                                        required
                                     />
                                 </div>
                             </>
