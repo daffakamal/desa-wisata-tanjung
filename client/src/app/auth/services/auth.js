@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://test-desa-wisata-tanjung.vercel.app/in';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://desa-wisata-tanjung.vercel.app/in';
 
 
 // Fungsi untuk mengambil token dari localStorage
