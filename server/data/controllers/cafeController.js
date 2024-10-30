@@ -11,6 +11,7 @@ exports.createCafe = async (req, res) => {
     }
     const newCafe = new cafeData({
       menu: req.body.menu,
+      kategori: req.body.kategori,
       harga: req.body.harga,
       gambar: imageData.url,
       cloudinary_id: imageData.public_id

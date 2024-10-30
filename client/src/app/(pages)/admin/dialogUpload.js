@@ -73,6 +73,7 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
         })
         setCafeForm({
             menu: "",
+            kategori: "",
             harga: ""
         })
         setGalleryForm({
@@ -426,27 +427,27 @@ const DialogUpload = ({ activeTab, onSuccess }) => {
                                     />
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
-                                    <Label htmlFor="kategori" className="text-right">Kategori *</Label>
+                                    <Label htmlFor="kategori" className="text-right">
+                                        Kategori *
+                                    </Label>
                                     <Select
                                         id="kategori"
                                         className="col-span-3"
                                         value={cafeForm.kategori}
-                                        onChange={(e) => handleInputChange(e, 'cafe')}
+                                        onValueChange={(e) => handleInputChange(e, 'cafe')}
                                         required
                                     >
-                                        <Select>
-                                          <SelectTrigger>
+                                        <SelectTrigger>
                                             <SelectValue placeholder="Pilih Kategori" />
-                                          </SelectTrigger>
-                                          <SelectContent>
+                                        </SelectTrigger>
+                                        <SelectContent>
                                             <SelectGroup>
-                                              <SelectItem value="Kopi">Kopi</SelectItem>
-                                              <SelectItem value="Non Kopi">Non Kopi</SelectItem>
-                                              <SelectItem value="Teh">Teh</SelectItem>
-                                              <SelectItem value="Jamu">Jamu</SelectItem>
+                                                <SelectItem value="Kopi">Kopi</SelectItem>
+                                                <SelectItem value="Non Kopi">Non Kopi</SelectItem>
+                                                <SelectItem value="Teh">Teh</SelectItem>
+                                                <SelectItem value="Jamu">Jamu</SelectItem>
                                             </SelectGroup>
-                                          </SelectContent>
-                                        </Select>
+                                        </SelectContent>
                                     </Select>
                                 </div>
                                 <div className="grid grid-cols-4 items-center gap-4">
