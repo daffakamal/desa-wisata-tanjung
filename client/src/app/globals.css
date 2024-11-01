@@ -26,6 +26,49 @@ html {
   }
 }
 
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  4.9% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+  }
+  5% {
+    top: 36px;
+    left: 36px;
+    width: 8px;
+    height: 8px;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+
+
+.lds-ripple {
+  @apply inline-block relative w-20 h-20;
+}
+.ripple-circle {
+  @apply absolute border-4 border-current opacity-100 rounded-full;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.delay {
+  animation-delay: -0.5s;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

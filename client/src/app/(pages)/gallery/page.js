@@ -6,19 +6,22 @@ import { useState, useEffect } from "react";
 
 export default function Gallery() {
   const [galleryData, setGalleryData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Fungsi untuk mengambil data gallery dari backend
   const fetchGalleryData = async () => {
+    setIsLoading(true);
     try {
-      const response = await fetch("/in/gallery"); // Sesuaikan path ini dengan route backend Anda
+      const response = await fetch("/in/gallery");
       const data = await response.json();
       setGalleryData(data); // Menyimpan data ke state
     } catch (error) {
       console.error("Error fetching gallery data:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  // useEffect untuk menjalankan fetchGalleryData ketika komponen pertama kali dirender
   useEffect(() => {
     fetchGalleryData();
   }, []);
@@ -39,8 +42,16 @@ export default function Gallery() {
       </div>
       <div className="w-full px-8 md:px-[180px]">
         <p className="mt-8 text-xl font-bold text-black">Daftar Tanaman Obat</p>
+        {isLoading ? (
+          <div className="w-full flex justify-center items-center">
+            <div className="lds-ripple">
+              <div className="ripple-circle"></div>
+              <div className="ripple-circle delay"></div>
+            </div>
+          </div>
+      ) : (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-4 mb-8">
-          {galleryData.map((item) => (
+          {galleryData.length > 0 ? (galleryData.map((item) => (
             <div key={item._id} className="bg-white shadow-md rounded-lg overflow-hidden">
               <img
                 src={item.gambar}
@@ -56,8 +67,14 @@ export default function Gallery() {
                 </p>
               </div>
             </div>
-          ))}
+          )))
+           : (
+            <div className="col-span-full text-center text-gray-500">
+              Tidak dapat mengambil data gallery
+            </div>
+          )}
         </div>
+      )}
       </div>
       <div className="mt-auto w-full">
         <Footer />

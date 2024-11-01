@@ -9,15 +9,19 @@ const categories = ["Semua", "Jahe", "Serai", "Kunyit", "Kencur", "Temulawak"];
 export default function Toga() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
   const [tanamanObatData, setTanamanObatData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchTanamanObatData = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch('/in/tanaman-obat');
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error('Error fetching UMKM data:', error);
+      console.error('Error fetching Tanaman Obat data:', error);
       return [];
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -71,26 +75,40 @@ export default function Toga() {
           ))}
         </div>
       </div>
+
       <div className="my-8 w-full px-8 md:px-[180px]">
-        {filteredTanamanObat.map((tanaman) => (
-          <div
-            key={tanaman.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
-          >
-            <img
-              src={tanaman.gambar}
-              alt={tanaman.tanaman}
-              className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
-            />
-            <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
-              <h3 className="text-xl font-bold">{tanaman.tanaman}</h3>
-              <p>Nama Latin: {tanaman.namaLatin}</p>
-              <p>Deskripsi: {tanaman.deskripsi}</p>
-              <p>Manfaat: {tanaman.manfaat}</p>
-              <p>Bentuk Olahan: {tanaman.bentukOlahan}</p>
+        {isLoading ? (
+          <div className="w-full flex justify-center items-center">
+            <div className="lds-ripple">
+              <div className="ripple-circle"></div>
+              <div className="ripple-circle delay"></div>
             </div>
           </div>
-        ))}
+        ) : filteredTanamanObat.length > 0 ? (
+          filteredTanamanObat.map((tanaman) => (
+            <div
+              key={tanaman.id}
+              className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
+            >
+              <img
+                src={tanaman.gambar}
+                alt={tanaman.tanaman}
+                className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
+              />
+              <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
+                <h3 className="text-xl font-bold">{tanaman.tanaman}</h3>
+                <p>Nama Latin: {tanaman.namaLatin}</p>
+                <p>Deskripsi: {tanaman.deskripsi}</p>
+                <p>Manfaat: {tanaman.manfaat}</p>
+                <p>Bentuk Olahan: {tanaman.bentukOlahan}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full text-center text-gray-500">
+            Tanaman obat tidak ditemukan
+          </div>
+        )}
       </div>
       <Footer />
     </div>

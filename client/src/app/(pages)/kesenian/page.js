@@ -4,21 +4,24 @@ import Footer from "@/components/layout/footer";
 import Navbar from "@/components/layout/navbar";
 import { useEffect, useState } from "react";
 
-
 const categories = ["Semua", "Gejog Lesung", "Pek Bung", "Jathilan"];
 
 export default function Kesenian() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
   const [kesenianData, setKesenianData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchKesenianData = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch('/in/kesenian');
       const data = await response.json();
       return data;
     } catch (error) {
-      console.error('Error fetching UMKM data:', error);
+      console.error('Error fetching Kesenian data:', error);
       return [];
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -30,7 +33,6 @@ export default function Kesenian() {
 
     getKesenianData();
   }, []);
-
 
   const filteredKesenian =
     selectedCategory === "Semua"
@@ -73,23 +75,37 @@ export default function Kesenian() {
           ))}
         </div>
       </div>
+
       <div className="my-8 w-full px-8 md:px-[180px]">
-        {filteredKesenian.map((kesenian) => (
-          <div
-            key={kesenian.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
-          >
-            <img
-              src={kesenian.gambar}
-              alt={kesenian.kesenian}
-              className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
-            />
-            <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
-              <h4 className="text-xl font-bold mb-2">{kesenian.kesenian}</h4>
-              <p>{kesenian.deskripsi}</p>
+        {isLoading ? (
+          <div className="w-full flex justify-center items-center">
+            <div className="lds-ripple">
+              <div className="ripple-circle"></div>
+              <div className="ripple-circle delay"></div>
             </div>
           </div>
-        ))}
+        ) : filteredKesenian.length > 0 ? (
+          filteredKesenian.map((kesenian) => (
+            <div
+              key={kesenian.id}
+              className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
+            >
+              <img
+                src={kesenian.gambar}
+                alt={kesenian.kesenian}
+                className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
+              />
+              <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
+                <h4 className="text-xl font-bold mb-2">{kesenian.kesenian}</h4>
+                <p>{kesenian.deskripsi}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full text-center text-gray-500">
+            Kesenian tidak ditemukan
+          </div>
+        )}
       </div>
       <Footer />
     </div>

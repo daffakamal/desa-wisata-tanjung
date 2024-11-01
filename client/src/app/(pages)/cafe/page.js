@@ -18,6 +18,7 @@ const formatRupiah = (angka) => {
 export default function Cafe() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
   const [cafeData, setCafeData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Fetch cafe data from backend
   const fetchCafeData = async () => {
@@ -33,8 +34,15 @@ export default function Cafe() {
 
   useEffect(() => {
     const getCafeData = async () => {
-      const data = await fetchCafeData();
-      setCafeData(data);
+      setIsLoading(true);
+      try {
+        const data = await fetchCafeData();
+        setCafeData(data);
+      } catch (error) {
+        console.error("Error setting cafe data:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     getCafeData();
@@ -95,19 +103,32 @@ export default function Cafe() {
           ))}
         </div>
       </div>
-      <div className="my-8 w-full px-8 md:px-[180px] grid grid-cols-1 md:grid-cols-4 gap-8">
-        {filteredCafeData.map((cafe) => (
-          <div key={cafe._id} className="bg-white shadow-md rounded-lg overflow-hidden">
-            <img src={cafe.gambar} alt={cafe.menu} className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <p className="text-center text-lg font-semibold text-black">{cafe.menu}</p>
-              <p className="text-center text-base text-gray-700">
-                {formatRupiah(cafe.harga)}
-              </p>
+      {isLoading ? (
+       <div class="lds-ripple">
+        <div class="ripple-circle"></div>
+        <div class="ripple-circle delay"></div>
+       </div>
+      ) : (
+        <div className="my-8 w-full px-8 md:px-[180px] grid grid-cols-1 md:grid-cols-4 gap-8">
+          {filteredCafeData.length > 0 ? (
+            filteredCafeData.map((cafe) => (
+              <div key={cafe._id} className="bg-white shadow-md rounded-lg overflow-hidden">
+                <img src={cafe.gambar} alt={cafe.menu} className="w-full h-48 object-cover" />
+                <div className="p-4">
+                  <p className="text-center text-lg font-semibold text-black">{cafe.menu}</p>
+                  <p className="text-center text-base text-gray-700">
+                    {formatRupiah(cafe.harga)}
+                  </p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="col-span-full text-center text-gray-500">
+              Tidak ada menu yang tersedia
             </div>
-          </div>
-        ))}
-      </div>
+          )}
+        </div>
+      )}
       <Footer />
     </div>
   );

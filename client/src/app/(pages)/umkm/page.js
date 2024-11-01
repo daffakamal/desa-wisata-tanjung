@@ -9,8 +9,10 @@ const categories = ["Semua", "Kuliner", "Non-kuliner"];
 export default function UMKM() {
   const [selectedCategory, setSelectedCategory] = useState("Semua");
   const [umkmData, setUMKMData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchUMKMData = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch('/in/umkm');
       const data = await response.json();
@@ -18,6 +20,8 @@ export default function UMKM() {
     } catch (error) {
       console.error('Error fetching UMKM data:', error);
       return [];
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -36,7 +40,7 @@ export default function UMKM() {
       : umkmData.filter((item) => item.kategori === selectedCategory);
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100  overflow-hidden">
+    <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 overflow-hidden">
       <Navbar />
       <div
         className="w-full bg-cover bg-center"
@@ -70,25 +74,39 @@ export default function UMKM() {
           ))}
         </div>
       </div>
+
       <div className="my-8 w-full px-8 md:px-[180px]">
-        {filteredUMKM.map((umkm) => (
-          <div
-            key={umkm.id}
-            className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
-          >
-            <img
-              src={umkm.gambar}
-              alt={umkm.umkm}
-              className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
-            />
-            <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
-              <h4 className="text-lg font-bold mb-2">{umkm.umkm}</h4>
-              <p>Usaha: {umkm.usaha}</p>
-              <p>Alamat: {umkm.alamat}</p>
-              <p>No. HP: {umkm.nomor}</p>
+        {isLoading ? (
+          <div className="w-full flex justify-center items-center">
+            <div className="lds-ripple">
+              <div className="ripple-circle"></div>
+              <div className="ripple-circle delay"></div>
             </div>
           </div>
-        ))}
+        ) : filteredUMKM.length > 0 ? (
+          filteredUMKM.map((umkm) => (
+            <div
+              key={umkm.id}
+              className="flex flex-col md:flex-row items-center mb-8 bg-white p-5 rounded-lg shadow-md"
+            >
+              <img
+                src={umkm.gambar}
+                alt={umkm.umkm}
+                className="w-auto md:min-w-[320px] h-[190px] object-cover rounded"
+              />
+              <div className="ml-0 md:ml-6 mt-4 md:mt-0 text-black">
+                <h4 className="text-lg font-bold mb-2">{umkm.umkm}</h4>
+                <p>Usaha: {umkm.usaha}</p>
+                <p>Alamat: {umkm.alamat}</p>
+                <p>No. HP: {umkm.nomor}</p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="col-span-full text-center text-gray-500">
+            Tidak ada data UMKM yang tersedia
+          </div>
+        )}
       </div>
       <Footer />
     </div>
