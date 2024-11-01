@@ -62,9 +62,9 @@ export default function Cafe() {
         <img src="/images/djampi.png" className="max-w-full rounded-xl shadow-md object-cover" />
     </div>
     <div className="space-y-4">
-        <p className="text-gray-700 leading-relaxed">Brand Kafe Jamu milik masyarakat Donoharjo diberi nama "Djampi Waras". Penamaan tersebut sebagai sebuah harapan agar ramuan herbal yang dihasilkan dapat menyehatkan setiap orang yang mengonsumsinya, baik secara jasmani maupun rohani.</p>
+        <p className="text-gray-700 leading-relaxed text-center">Brand Kafe Jamu milik masyarakat Donoharjo diberi nama &quot;Djampi Waras&quot;. Penamaan tersebut sebagai sebuah harapan agar ramuan herbal yang dihasilkan dapat menyehatkan setiap orang yang mengonsumsinya, baik secara jasmani maupun rohani.</p>
         
-        <div>
+        <div className="mt-12">
             <h2 className="font-bold text-xl mb-2">Alamat</h2>
             <p className="text-gray-600"> Jalan Noto Sukardjo, RT. 04/RW. 26, Dusun Banteran , Kalurahan Donoharjo, Kapanewon Ngaglik, Kabupaten Sleman.</p>
         </div>
