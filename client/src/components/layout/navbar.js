@@ -20,20 +20,34 @@ export default function Navbar() {
   const isActive = (path) => mounted && router.pathname === path;
 
   return (
-    <div className="flex justify-between items-center w-full h-[75px] px-8 md:px-28 text-white bg-[#242424] fixed z-40">
+    <div className="left-0 flex justify-between items-center w-full h-[75px] px-8 md:px-28 text-white bg-[#242424] fixed z-40">
       <Link className="ml-2" href="/">
         <h1 className="md:text-[22px] font-bold text-lg">Desa Wisata Tanjung</h1>
       </Link>
-      <ul className="hidden lg:flex">
-        <li className={`px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/") ? "text-yellow-400" : "text-white"}`}>
-          <Link href="/">Beranda</Link>
+      <ul className="hidden lg:flex h-full justify-center items-center">
+        <li className={`h-full px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/") ? "text-yellow-400" : "text-white"}`}>
+          <Link className="h-full flex items-center" href="/">Beranda</Link>
         </li>
         <li onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
-            onClick={() => setDropdownOpen(!dropdownOpen)}
-            className="relative px-7 cursor-pointer capitalize text-center font-medium hover:scale-105 duration-200">
-          <span className={`hover:text-white ${isActive("/umkm") || isActive("/toga") || isActive("/kesenian") ? "text-yellow-400" : "text-white"}`}>
+            // onClick={() => setDropdownOpen(!dropdownOpen)}
+            className="h-full flex items-center relative px-7 cursor-pointer capitalize text-center font-medium hover:scale-105 duration-200">
+          <span className={`flex gap-3 hover:text-white ${isActive("/umkm") || isActive("/toga") || isActive("/kesenian") ? "text-yellow-400" : "text-white"}`}>
             Informasi
+            <svg 
+              fill="#ffffff" 
+              width="24px" 
+              height="24px" 
+              viewBox="0 0 24 24" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g data-name="Layer 2">
+                <g data-name="arrow-ios-downward">
+                  <rect width="24" height="24" opacity="0"/>
+                  <path d="M12 16a1 1 0 0 1-.64-.23l-6-5a1 1 0 1 1 1.28-1.54L12 13.71l5.36-4.32a1 1 0 0 1 1.41.15 1 1 0 0 1-.14 1.46l-6 4.83A1 1 0 0 1 12 16z"/>
+                </g>
+              </g>
+            </svg>
           </span>
           {/* Dropdown Menu */}
           <ul
@@ -41,25 +55,31 @@ export default function Navbar() {
             onMouseEnter={() => setDropdownOpen(true)}
             onMouseLeave={() => setDropdownOpen(false)}
           >
-            <li className={`px-4 py-2 hover:bg-gray-700 ${isActive("/umkm") ? "text-yellow-400" : ""}`}>
-              <Link href="/umkm">UMKM</Link>
-            </li>
-            <li className={`px-4 py-2 hover:bg-gray-700 ${isActive("/toga") ? "text-yellow-400" : ""}`}>
-              <Link href="/toga">Agro</Link>
-            </li>
-            <li className={`px-4 py-2 hover:bg-gray-700 ${isActive("/kesenian") ? "text-yellow-400" : ""}`}>
-              <Link href="/kesenian">Kesenian</Link>
-            </li>
+            <Link href="/umkm">
+              <li className={`px-4 py-2 hover:bg-gray-700 ${isActive("/umkm") ? "text-yellow-400" : ""}`}>
+                UMKM
+              </li>
+            </Link>
+            <Link href="/toga">
+              <li className={`px-4 py-2 hover:bg-gray-700 ${isActive("/toga") ? "text-yellow-400" : ""}`}>
+                Agro
+              </li>
+            </Link>
+            <Link href="/kesenian">
+              <li className={`px-4 py-2 hover:bg-gray-700 ${isActive("/kesenian") ? "text-yellow-400" : ""}`}>
+                Kesenian
+              </li>
+            </Link>
           </ul>
         </li>
-        <li className={`px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/gallery") ? "text-yellow-400" : "text-white"}`}>
-          <Link href="/gallery">Gallery</Link>
+        <li className={`h-full px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/gallery") ? "text-yellow-400" : "text-white"}`}>
+          <Link className="h-full flex items-center" href="/gallery">Gallery</Link>
         </li>
-        <li className={`px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/cafe") ? "text-yellow-400" : "text-white"}`}>
-          <Link href="/cafe">Cafe</Link>
+        <li className={`h-full px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/cafe") ? "text-yellow-400" : "text-white"}`}>
+          <Link className="h-full flex items-center" href="/cafe">Cafe</Link>
         </li>
-        <li className={`px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/lembagaKonservasi") ? "text-yellow-400" : "text-white"}`}>
-          <Link href="/lembagaKonservasi">Lembaga</Link>
+        <li className={`h-full px-7 cursor-pointer capitalize font-medium hover:scale-105 duration-200 ${isActive("/lembagaKonservasi") ? "text-yellow-400" : "text-white"}`}>
+          <Link className="h-full flex items-center" href="/lembagaKonservasi">Lembaga</Link>
         </li>
       </ul>
 
@@ -71,25 +91,25 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {nav && (
         <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-[#242424] text-white">
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+          <li className="px-4 cursor-pointer capitalize py-6 text-2xl">
             <Link onClick={() => setNav(!nav)} href="/">Beranda</Link>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+          <li className="px-4 cursor-pointer capitalize py-6 text-2xl">
             <Link onClick={() => setNav(!nav)} href="/umkm">UMKM</Link>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+          <li className="px-4 cursor-pointer capitalize py-6 text-2xl">
             <Link onClick={() => setNav(!nav)} href="/toga">Agro</Link>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+          <li className="px-4 cursor-pointer capitalize py-6 text-2xl">
             <Link onClick={() => setNav(!nav)} href="/kesenian">Kesenian</Link>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+          <li className="px-4 cursor-pointer capitalize py-6 text-2xl">
             <Link onClick={() => setNav(!nav)} href="/gallery">Gallery</Link>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+          <li className="px-4 cursor-pointer capitalize py-6 text-2xl">
             <Link onClick={() => setNav(!nav)} href="/cafe">Cafe</Link>
           </li>
-          <li className="px-4 cursor-pointer capitalize py-6 text-4xl">
+          <li className="px-4 cursor-pointer capitalize py-6 text-2xl">
             <Link onClick={() => setNav(!nav)} href="/lembagaKonservasi">Lembaga</Link>
           </li>
         </ul>

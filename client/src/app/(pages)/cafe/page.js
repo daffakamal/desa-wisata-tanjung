@@ -43,15 +43,33 @@ export default function Cafe() {
       <Navbar />
       <div className="w-full mx-2 bg-cover bg-center" style={{ backgroundImage: "url('/images/Group 27.png')" }}>
         <h1 className="text-3xl font-bold text-white text-center pt-36">Cafe</h1>
-        <p className="text-lg text-white text-center pt-3 pb-20">
-        Kafe jamu merupakan inisiatif bersama guna mempertahankan budaya jamu sebagai solusi sehat alami dan memanfaatkan potensi TOGA di Kalurahan Donoharjo. 
-        Kafe jamu berada di Jalan Noto Sukardjo, RT. 04/RW. 26, Dusun Banteran , Kalurahan Donoharjo, Kapanewon Ngaglik, Kabupaten Sleman. 
-        Brand Kafe Jamu milik masyarakat Donoharjo diberi nama “Djampi Waras”. 
-        Penamaan tersebut sebagai sebuah harapan agar ramuan herbal yang dihasilkan dapat menyehatkan setiap orang yang mengonsumsinya, baik secara jasmani maupun rohani.
-        Kafe jamu beroperasi dari Hari Senin hingga Hari Sabtu. Jam operasional untuk Hari Senin hingga Hari Jumat, yaitu pukul pukul 09.00 - 21.00 WIB. Sementara untuk Hari Sabtu buka pukul 09.00-19.00 WIB.
+        <p className="text-lg text-white text-center px-8 md:px-20  pt-3 pb-20">
+        Kafe jamu merupakan inisiatif bersama guna mempertahankan budaya jamu sebagai solusi sehat alami dan memanfaatkan potensi TOGA di Kalurahan Donoharjo.  
         </p>
       </div>
-      <div className="w-full px-8 md:px-[180px]">
+      <div className="w-full mt-4 px-8 md:px-[180px]">
+      <div className="container mx-auto py-8">
+    <h2 className="font-bold text-center text-2xl py-4">Djampi Waras</h2>
+    <div className="flex justify-center mb-6">
+        <img src="/images/djampi.png" className="max-w-full rounded-xl shadow-md object-cover" />
+    </div>
+    <div className="space-y-4">
+        <p className="text-gray-700 leading-relaxed">Brand Kafe Jamu milik masyarakat Donoharjo diberi nama "Djampi Waras". Penamaan tersebut sebagai sebuah harapan agar ramuan herbal yang dihasilkan dapat menyehatkan setiap orang yang mengonsumsinya, baik secara jasmani maupun rohani.</p>
+        
+        <div>
+            <h2 className="font-bold text-xl mb-2">Alamat</h2>
+            <p className="text-gray-600"> Jalan Noto Sukardjo, RT. 04/RW. 26, Dusun Banteran , Kalurahan Donoharjo, Kapanewon Ngaglik, Kabupaten Sleman.</p>
+        </div>
+        
+        <div>
+            <h2 className="font-bold text-xl mb-2">Jam Operasi</h2>
+            <div className="text-gray-600">
+                <p>Senin-Jumat  : 09.00 - 21.00 WIB</p>
+                <p>Sabtu  : 09.00 - 19.00 WIB</p>
+            </div>
+        </div>
+    </div>
+</div>
         <p className="mt-8 text-xl font-bold text-black">Daftar Menu</p>
         <div className="flex space-x-3 mt-4">
           {categories.map((category) => (

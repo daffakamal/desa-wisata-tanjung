@@ -35,7 +35,7 @@ const SplashAnimation = ({ children }) => {
               className="text-white text-center"
             >
               <div className="w-32 h-32 mb-4 mx-auto flex items-center justify-center">
-                  <img src="/images/bem-km.png" alt="Logo BEM KM"  />
+                  <img src="/images/logo-pdm.png" alt="Logo BEM KM"  />
               </div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -48,14 +48,14 @@ const SplashAnimation = ({ children }) => {
             </motion.div>
           </motion.div>
         ) : (
-          <motion.div
+          <motion.span
             key="main"
             initial={{ opacity: 0, y: -3, scale: 1.2 }}
-            animate={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8 }}
           >
             {children}
-          </motion.div>
+          </motion.span>
         )}
       </AnimatePresence>
     </div>

@@ -4,21 +4,26 @@
 
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import Image from 'next/image';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
 
 export default function LembagaKonservasi() {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const programs = [
-    { title: 'Konservasi Tanaman Obat dan Keluarga', image: '/images/rapat.png' },
+    { title: 'Konservasi Tanaman Obat dan Keluarga', image: '/images/kunyit.jpg' },
     { title: 'Pengembangan Produk Olahan TOGA', image: '/images/rapat.png' },
     { title: 'Pengelolaan Kafe Jamu', image: '/images/djampi.png' },
+    { title: 'Jalinan Kemitraan', image: '/images/bem-km.png' },
+    { title: 'Optimalisasi Media Sosial ', image: '/images/instagram.webp' },
   ];
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % programs.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + programs.length) % programs.length);
 
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-start bg-gray-100 overflow-hidden">
@@ -35,16 +40,16 @@ export default function LembagaKonservasi() {
         </p>
       </div>
       <div className="w-full px-6 md:px-20 lg:px-44 mb-20">
-        <div className="flex flex-col md:flex-row space-x-0 md:space-x-3 mt-4">
-          <div className="w-full md:w-1/2 mb-8 md:mb-0">
-            <p className="text-lg mb-4 mt-14 md:mt-28">
+        <div className="flex flex-col-reverse md:flex-row justify-center items-center space-x-0 md:space-x-3 mt-10">
+          <div className="flex w-full md:w-1/2">
+            <p className="text-lg my-4">
               Lembaga konservasi TOGA merupakan sebuah wadah yang ditujukan untuk melestarikan dan mempromosikan TOGA melalui pembentukan komunitas. Lembaga konservasi TOGA akan melakukan pengelolaan terhadap bibit TOGA dari struktur lokal, seperti jahe, kencur, kunyit, dan serai. Pengelolaan bibit TOGA merupakan bentuk tanggung jawab dari struktur keanggotaan lembaga konservasi TOGA. Struktur keanggotaan lembaga konservasi TOGA terdiri dari pelaku Usaha Mikro Kecil dan Menengah (UMKM), ibu-ibu PKK, dan petani jamu.
             </p>
           </div>
-          <div className="w-full md:w-1/2 flex justify-center items-center">
+          <div className="w-full md:w-1/2 flex mb-8 md:mb-0 justify-center items-center">
             <Image
-              src="/images/rapat.png"
-              alt="Meeting"
+              src="/images/pondok.jpg"
+              alt="Desa Tanjung"
               width={500}
               height={300}
               className="rounded-lg"
@@ -171,22 +176,38 @@ export default function LembagaKonservasi() {
         </Tabs>
 
         <h2 className="text-2xl font-bold mb-4">Program</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {programs.map((program, index) => (
-            <div key={index} className="relative w-full h-64 overflow-hidden rounded-lg">
-              <Image
-                src={program.image}
-                alt={program.title}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-white text-center">
-                <h3 className="text-lg font-semibold">{program.title}</h3>
-              </div>
-            </div>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            loop: true,
+            align: "start",
+          }}
+          className="w-full"
+        >
+          <CarouselContent>
+            {programs.map((program, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1">
+                  <Card>
+                    <div key={index} className="relative w-full h-64 overflow-hidden rounded-lg">
+                        <Image
+                          src={program.image}
+                          alt={program.title}
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded-lg"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4 text-white text-center">
+                          <h3 className="text-lg font-semibold">{program.title}</h3>
+                        </div>
+                      </div>
+                  </Card>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
       <Footer />
     </div>
