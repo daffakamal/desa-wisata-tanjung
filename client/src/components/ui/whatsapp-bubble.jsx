@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 const generateWhatsAppLink = () => {
-    const phoneNumber = '+6288229856345'
+    const phoneNumber = '+628156700291'
     const message = 'Halo, saya ingin bertanya tentang Desa Wisata Tanjung'
     
     const cleanedPhoneNumber = phoneNumber.replace(/\D/g, '');
